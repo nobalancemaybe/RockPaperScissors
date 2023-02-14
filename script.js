@@ -1,8 +1,8 @@
 
 let computerSelection = getComputerChoice(["rock", "paper", "scissors"]);
 let playerSelection = prompt("rock paper or scissors", " ");
-//let computerScore = 0;
-//let playerScore = 0;
+let computerScore = 0;
+let playerScore = 0;
 
 //random choice from array
 function getComputerChoice(array) {
@@ -24,25 +24,26 @@ function playRound(playerSelection, computerSelection) {
 game(playerSelection, computerSelection);
 // play the game 5 times
 function game() {
-    for ( let i = 0; i = 5; i++) {
-        let computerScore = 0;
-        let playerScore = 0;
+    for ( let i = 0; i < 5; i++) {
+        
         console.log(playerScore);
         let result = playRound(playerSelection, computerSelection);
         console.log(playRound(playerSelection, computerSelection));
         if (result === 1){
-            let playerScore = ++playerScore;
-            console.log("playerWon");
+            playerScore = playerScore++;
+            console.log("player won");
+            console.log(i);
             return "Round won";
         }
         else if (result === 2) {
-            let computerScore = ++computerScore;
-            console.log(computerScore);
+            computerScore = computerScore++;
+            console.log("computer won");
+            console.log(i);
         }
         else {
+            console.log("It's a tie")
+            console.log(i);
             return "It's a tie";
         }
-        console.log(i);
-        return
     }
 }
