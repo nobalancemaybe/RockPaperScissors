@@ -10,6 +10,7 @@ function getComputerChoice(array) {
 }
 
 function playRound(playerSelection, computerSelection) {
+    playerSelection = prompt("rock paper or scissors", " ");
     if ( playerSelection == computerSelection ){
         console.log(playerSelection);
         return 0
@@ -25,24 +26,21 @@ game(playerSelection, computerSelection);
 // play the game 5 times
 function game() {
     for ( let i = 0; i < 5; i++) {
-        
+        console.log(i);
         console.log(playerScore);
         let result = playRound(playerSelection, computerSelection);
         console.log(playRound(playerSelection, computerSelection));
         if (result === 1){
             playerScore = playerScore++;
             console.log("player won");
-            console.log(i);
             return "Round won";
         }
         else if (result === 2) {
             computerScore = computerScore++;
             console.log("computer won");
-            console.log(i);
         }
         else {
             console.log("It's a tie")
-            console.log(i);
             return "It's a tie";
         }
     }
