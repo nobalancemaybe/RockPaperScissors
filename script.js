@@ -3,6 +3,7 @@ let computerSelection = getComputerChoice(["rock", "paper", "scissors"]);
 let playerSelection = prompt("rock paper or scissors", " ");
 let computerScore = 0;
 let playerScore = 0;
+let roundWinner = '';
 
 game(playerSelection, computerSelection);
 
@@ -14,17 +15,57 @@ function getComputerChoice(array) {
 function playRound(playerSelection, computerSelection) {
     playerSelection = prompt("rock paper or scissors", " ");
     if ( playerSelection === computerSelection ){
-        return 0
+        return 0 //tie
     }
-    else if ( playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "rock"){
-        return 2
+    if ( 
+        (playerSelection === "rock" && computerSelection === "paper") || 
+        (playerSelection === "paper" && computerSelection === "scissors") || 
+        (playerSelection === "scissors" && computerSelection === "rock")    
+    ){
+        return 2 //player lose
     }
-    else{
+    if (
+        (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') ||
+        (playerSelection === 'SCISSORS' && computerSelection === 'PAPER') ||
+        (playerSelection === 'PAPER' && computerSelection === 'ROCK')
+      ){
         return 1
     }
 }
 
-// play the game 5 times
+rock.addEventListener("click", playRound(rock, computerSelection));
+paper.addEventListener("click", function(){});
+scissors.addEventListener("click", function(){});
+
+function isGameOver() {
+    return playerScore === 5 || computerScore === 5
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* play the game 5 times
 function game() {
     for ( let i = 0; i < 5; i++) {
         console.log(i);
@@ -46,3 +87,4 @@ function game() {
         }
     }
 }
+*/
